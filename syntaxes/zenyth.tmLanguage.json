@@ -1,0 +1,47 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Zenyth",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#functions"
+		},
+		{
+			"include": "#types"
+		}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [{
+				"name": "keyword.control.zenyth",
+				"match": "\\b(if|while|for|return|let|fun)\\b"
+			},
+			{
+				"name": "keyword.operator.zenyth",
+				"match": "\\b(+|=|-|*|/|%|+=|-=|*=|/=|%=|==|!=|>|<|>=|<=)"
+			}
+		]
+		},
+		"strings": {
+			"name": "string.quoted.double.zenyth",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.zenyth",
+					"match": "\\\\."
+				}
+			]
+		},
+		"functions":{
+			"name":"entity.name.function",
+			"match": ""
+		}
+	},
+	"scopeName": "source.zenyth"
+}
