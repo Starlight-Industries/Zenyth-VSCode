@@ -1,37 +1,162 @@
 {
-	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/refs/heads/master/tmlanguage.json",
-	"name": "Zenyth",
+	"scopeName": "source.zenyth",
+	"name": "zenyth",
+	"fileTypes": ["zen","zenyth","z","znyth"],
 	"patterns": [
-		{
-			"include": "#keywords"
-		},
-		{
-			"include": "#strings"
-		}
+	  {
+		"include": "#comments"
+	  },
+	  {
+		"include": "#strings"
+	  },
+	  {
+		"include": "#keywords"
+	  },
+	  {
+		"include": "#types"
+	  },
+	  {
+		"include": "#declarations"
+	  },
+	  {
+		"include": "#functions"
+	  },
+	  {
+		"include": "#macros"
+	  },
+	  {
+		"include": "#structs"
+	  },
+	  {
+		"include": "#arrays"
+	  },
+	  {
+		"include": "#pointers"
+	  },
+	  {
+		"include": "#operators"
+	  }
 	],
 	"repository": {
-		"keywords": {
-			"patterns": [{
-				"name": "keyword.control.zenyth",
-				"match": "\\b(if|while|for|return|let|fun)\\b"
-			},
-			{
-				"name": "keyword.operator.zenyth",
-				"match": "\\b(+|=|-|*|/|%|+=|-=|*=|/=|%=|==|!=|>|<|>=|<=)"
-			}
+	  "comments": {
+		"patterns": [
+		  {
+			"name": "comment.block.zenyth",
+			"begin": "##\\*",
+			"end": "\\*##"
+		  },
+		  {
+			"name": "comment.line.hash.zenyth",
+			"begin": "#",
+			"end": "$"
+		  }
 		]
-		},
-		"strings": {
+	  },
+	  "strings": {
+		"patterns": [
+		  {
 			"name": "string.quoted.double.zenyth",
 			"begin": "\"",
-			"end": "\"",
-			"patterns": [
-				{
-					"name": "constant.character.escape.zenyth",
-					"match": "test"
-				}
-			]
-		}
-	},
-	"scopeName": "source.zenyth"
-}
+			"end": "\""
+		  }
+		]
+	  },
+	  "keywords": {
+		"patterns": [
+		  {
+			"name": "keyword.control.zenyth",
+			"match": "\\b(loop|break|if|else|return)\\b"
+		  },
+		  {
+			"name": "keyword.control.zenyth",
+			""
+		  }
+		]
+	  },
+	  "types": {
+		"patterns": [
+		  {
+			"name": "storage.type.zenyth",
+			"match": "\\b(Uint|Int|Void|String||u\\d+|i\\d+|f\\d+)\\b"
+		  }
+		]
+	  },
+	  "declarations": {
+		"patterns": [
+		  {
+			"name": "variable.other.declaration.zenyth",
+			"match": "\\b[A-Z_][A-Z0-9_]*\\b"
+		  },
+		  {
+			"name": "variable.other.assignment.zenyth",
+			"match": "\\b[a-z_][a-z0-9_]*\\b"
+		  }
+		]
+	  },
+	  "operators": {
+		"patterns": [
+		  {
+			"name": "keyword.operator.zenyth",
+			"match": "\\b(\\^|\\*|&|\\+|\\-|\\*|\\/|%|\\|\\||&&|!|==|!=|<|<=|>|>=|\\||&|\\^|~|<<|>>|\\+=|-=|\\*=|\\/=|%=|\\|=|&=|\\^=|~=|<<=|->|@\\w+)\\b"
+		  }
+		]
+	  },
+	  "functions": {
+		"patterns": [
+		  {
+			"name": "entity.name.function.zenyth",
+			"match": "\\b[a-z_][a-z0-9_]*\\b(?=\\()"
+		  }
+		]
+	  },
+	  "macros": {
+		"patterns": [
+		  {
+			"name": "entity.name.macro.zenyth",
+			"match": "@\\b[a-z_][a-z0-9_]*\\b"
+		  }
+		]
+	  },
+	  "structs": {
+		"patterns": [
+		  {
+			"name": "storage.type.struct.zenyth",
+			"match": "\\b[a-zA-Z_][a-zA-Z0-9_]*\\s*:=\\s*struct\\b"
+		  },
+		  {
+			"name": "storage.type.struct.zenyth",
+			"match": "\\b\\.[a-zA-Z_][a-zA-Z0-9_]*\\b"
+		  }
+		]
+	  },
+	  "arrays": {
+		"patterns": [
+		  {
+			"name": "storage.type.array.zenyth",
+			"match": "\\[\\b[a-zA-Z_][a-zA-Z0-9_]*\\b\\]"
+		  },
+		  {
+			"name": "storage.type.array.zenyth",
+			"match": "\\[\\b[a-zA-Z_][a-zA-Z0-9_]*\\b;\\s*\\d+\\]"
+		  }
+		]
+	  },
+	  "pointers": {
+		"patterns": [
+		  {
+			"name": "storage.modifier.pointer.zenyth",
+			"match": "\\^+"
+		  },
+		  {
+			"name": "keyword.operator.dereference.zenyth",
+			"match": "\\*+"
+		  },
+		  {
+			"name": "keyword.operator.reference.zenyth",
+			"match": "\\&+"
+		  }
+		]
+	  }
+	}
+  }
+  

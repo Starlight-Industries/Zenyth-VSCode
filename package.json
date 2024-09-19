@@ -1,9 +1,10 @@
 {
-  "name": "zenyth-vscode",
+  "name": "zenyth",
   "displayName": "Zenyth-VSCode",
   "description": "Experimental language support for an equally as experimental language",
   "repository": {"type": "git","url": "https://github.com/Starlight-Industries/Zenyth-VSCode"},
   "version": "0.0.1",
+  "publisher": "Starlight-software",
   "engines": {
     "vscode": "^1.93.0"
   },
